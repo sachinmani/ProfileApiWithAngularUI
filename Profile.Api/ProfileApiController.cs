@@ -26,6 +26,12 @@ namespace Profile.Api
         [HttpPost("/")]
         public async Task<IActionResult> Post(ProfileApi.ViewModels.Profile profile)
         {
+            
+            if (profile == null || string.IsNullOrWhiteSpace(profile.Firstname) ||
+                string.IsNullOrWhiteSpace(profile.Lastname))
+            {
+                return BadRequest("Either firstname or lastname is empty");
+            }
             await _profileService.AddProfile(profile);
             return Ok();
         }
