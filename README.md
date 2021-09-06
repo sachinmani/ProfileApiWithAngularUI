@@ -5,7 +5,7 @@ From outside VS, go to the right folder under bin to locate Profile.Api.exe and 
 Project has been configured to run swagger which can be located under the following url https://localhost:5001/docs/index.html
 
 Angular UI
-In order to run this angular UI app, we need to node and npm
-Inside the Profile.Api project, go into the app/profile folder
-Open the above location in command prompt and do execute  'npm install'
-Then execute 'ng serve'
+In order to run this angular UI app, we need to node and npm.
+Inside the Profile.Api project, go into the app/profile folder.
+Open the above location in command prompt and do execute  'npm install'.
+Then execute 'ng serve'.
