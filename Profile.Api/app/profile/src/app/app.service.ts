@@ -12,12 +12,12 @@ import {catchError, retry} from 'rxjs/operators';
     constructor(private http: HttpClient) { }
 
     getAll(): Observable<Profile[]> { 
-       return this.http.get<Profile[]>("https://localhost:44316/");
+       return this.http.get<Profile[]>("https://localhost:5001/");
     }
 
     addProfile(profile: Profile) {
        console.log("Service layer invoked");
-       return this.http.post("https://localhost:44316/", profile).pipe(catchError(this.handleError));
+       return this.http.post("https://localhost:5001/", profile).pipe(catchError(this.handleError));
     }
 
     private handleError(error: HttpErrorResponse) {

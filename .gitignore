@@ -29,14 +29,8 @@ obj/
 _ReSharper*/
 [Tt]est[Rr]esult*
 
-#do not track Nuget config inside these folders, only use the one inside build
-/src/NuGet.config
-/src/SWIPEO.Callflows.Validation.Service/NuGet.config
-./NuGet.config
-src/SWIPEO.Callflows.Validation.Service/Properties/launchSettings.json
-
 #do not track the dockerfile and dockerignore in the src folder
 /src/Dockerfile
 /src/.dockerignore
 
-
+node_modules/

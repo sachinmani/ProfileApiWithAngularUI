@@ -1,11 +1,6 @@
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using NLog.Web;
 
 namespace Profile.Api
@@ -18,10 +13,22 @@ namespace Profile.Api
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
+            //WebHost.CreateDefaultBuilder(args)
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                    webBuilder.UseKestrel(options =>
+                    {
+                        options.AddServerHeader = false;
+                        options.ConfigureHttpsDefaults(httpsConnectionAdapterOptions =>
+                        {
+                            httpsConnectionAdapterOptions.ClientCertificateValidation =
+                                (certificate2, chain, arg3) => true;
+
+                        });
+                    });
+
                 }).UseNLog();
     }
 }
