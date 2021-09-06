@@ -14,6 +14,7 @@ import { Router }  from '@angular/router';
 export class AppComponent {
   model = new Profile('','');
   profiles: Profile[] = [];
+  errorMessage:string = '';
   constructor(private _profile: ProfileService, private _router: Router) {
   }
 
@@ -24,8 +25,20 @@ export class AppComponent {
  }
 
  onSubmit(){
-   console.log("submit Invoked");
-   this._profile.addProfile(this.model).subscribe(()=> this.getAll());
+   
+   if(this.model.firstname == null || this.model.firstname == ''){
+     this.errorMessage = "Firstname empty";
+     console.log("=======>"+ this.errorMessage);
+     return;
+   }
+   if(this.model.lastname == null || this.model.lastname == ''){
+     this.errorMessage= "Lastname empty";
+     return;
+   }
+   this._profile.addProfile(this.model).subscribe((e)=>{
+    
+    this.getAll();
+   } );
  }
 
  getAll(){

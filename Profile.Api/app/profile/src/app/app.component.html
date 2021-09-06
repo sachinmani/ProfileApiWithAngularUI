@@ -1,6 +1,9 @@
 <div class = "container">
   <h1>Profile Form</h1>
   <form>
+    <ngb-alert [dismissible]="true"  *ngIf = 'errorMessage'>
+      <strong>{{errorMessage}}</strong> 
+    </ngb-alert>
      <div class = "form-group">
         <label for = "firstname">Firstname</label>
         <input type = "text" class = "form-control" id = "firstname" required
