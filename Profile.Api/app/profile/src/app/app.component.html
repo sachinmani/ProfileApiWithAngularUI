@@ -1,7 +1,7 @@
 <div class = "container">
   <h1>Profile Form</h1>
   <form>
-    <ngb-alert [dismissible]="true"  *ngIf = 'errorMessage'>
+    <ngb-alert type="danger" [dismissible]="true"  *ngIf = 'errorMessage'>
       <strong>{{errorMessage}}</strong> 
     </ngb-alert>
      <div class = "form-group">
